@@ -48,15 +48,15 @@ sudo apt install grub-customizer
 
    + settings–>Region&language–>Manage Installed Languages
 
-   <img src="./figures/software/sougoupinyin/software1.png" style="zoom:70%;" />
+   <img src="./figures/software/sougoupinyin/software1.png" align='left' style="zoom:70%;" />
 
    + 安装缺失字体install（有时候没有）
 
-   <img src="./figures/software/sougoupinyin/software2.png" alt="software2" style="zoom:80%;" />
+   <img src="./figures/software/sougoupinyin/software2.png" align='left' alt="software2" style="zoom:80%;" />
 
    + 选择输入框架为fcitx，然后点击上面的Apply System-Wide应用到全局。
 
-   <img src="./figures/software/sougoupinyin/software3.png" alt="software1" />
+   <img src="./figures/software/sougoupinyin/software3.png" align='left' alt="software1" />
 
 5. **重启电脑**
 
@@ -64,7 +64,7 @@ sudo apt install grub-customizer
 
 + 在右上角有一个键盘标志，点击进入，选择Configure Current Input Method
 
-<img src="./figures/software/sougoupinyin/software4.png" alt="software1"
+<img src="./figures/software/sougoupinyin/software4.png" align='left' alt="software1"
 />
 
    + 进入下面的Input Method界面后，选择+号
@@ -73,7 +73,7 @@ sudo apt install grub-customizer
 
       建议不要把搜狗输入法移动到第一位，不然按shift切换中英文时，有时输入板会出现乱码）
 
-<img src="./figures/software/sougoupinyin/software5.png" alt="software1" />
+<img src="./figures/software/sougoupinyin/software5.png" align='left' alt="software1" />
 
    +  搜狗里面可以设置切换，默认应该就是shift切换中英文。在fcitx的GlobalConfig 也可以设置。
    + 默认输入发和搜狗输入法切换space+shift
@@ -203,7 +203,7 @@ snap install electronic-wechat
 + 新建command输入/usr/bin/flameshot gui
 + name和快捷键随意
 
-<img src="./figures/software/flameshot/flameshot1.png" style="zoom:85%;" />
+<img src="./figures/software/flameshot/flameshot1.png" align='left' style="zoom:85%;" />
 
 
 
