@@ -25,5 +25,8 @@
 
 + [搜索引擎高级指令](搜索引擎高级指令.md)
 
-  
++ [pip](pip.md)
 
++ [cuda+cudnn](cuda+cudnn.md)
+
+  
