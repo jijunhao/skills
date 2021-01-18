@@ -18,7 +18,7 @@
   选择开始，之后耐心等待6-10分钟，直到显示"绿色的准备就绪"，点击关闭
   期间可能需要联网，自动下载syslinux，选择是，并选择以iso镜像模式写入，选则是
 
-<img src="./figures/win+ubuntu/win+ubuntu1.jpg" align='left' style="zoom:80%;" />
+<img src="./figures/win+ubuntu/win+ubuntu1.jpg" style="zoom:80%;" />
 
 3. 硬盘分区
 在想要分区的硬盘上压缩卷，最好超过50GB，我装在了机械硬盘上，选择了200GB，即204800MB
@@ -69,6 +69,6 @@ sudo apt update
 sudo ubuntu-drivers autoinstall
 ```
 
-<img src="./figures/win+ubuntu/win+ubuntu14.jpg" align='left' width="700" height="400" />
+<img src="./figures/win+ubuntu/win+ubuntu14.jpg"/>
 
 **注意可能会内核更新，要等内核更新完毕才能安装显卡，否则会出现dpkg锁住** 

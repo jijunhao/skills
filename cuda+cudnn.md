@@ -6,9 +6,9 @@
 
 例如：cuda10.0+python3.8+tensorflow2.3.0或cuda11.0+python3.8+tensorflow2.4.0
 
-<img src="./figures/cuda+cudnn/0.png" align='left' width="800" height="500" />
+<img src="./figures/cuda+cudnn/0.png"/>
 
-<img src="./figures/cuda+cudnn/1.png" align='left' width="800" height="500" />
+<img src="./figures/cuda+cudnn/1.png"/>
 
 **可以直接将网址复制到浏览器，下载快点**
 
@@ -16,17 +16,17 @@
 
    可以选择Abort退出，之后去删除驱动，也可以直接继续Continue，我选择Continue
 
-<img src="./figures/cuda+cudnn/in1.png" align='left' width="800" height="500" />
+<img src="./figures/cuda+cudnn/in1.png"/>
 
 选择accpet接受协议
 
-<img src="./figures/cuda+cudnn/in2.png" align='left' width="800" height="500" />
+<img src="./figures/cuda+cudnn/in2.png"/>
 
 取消勾选第一个driver，直接回车就能取消前面的[X]，然后install
 
-<img src="./figures/cuda+cudnn/in6.png" align='left'/>
+<img src="./figures/cuda+cudnn/in6.png"/>
 
-<img src="./figures/cuda+cudnn/in3.png" align='left'/>
+<img src="./figures/cuda+cudnn/in3.png"/>
 
 3. 根据提示的信息，配置环境变量
 
@@ -34,7 +34,7 @@
 sudo vi ~/.bashrc   
 ```
 
-<img src="./figures/cuda+cudnn/in4.png" align='left'/>
+<img src="./figures/cuda+cudnn/in4.png"/>
 
 然后刷新环境变量
 
@@ -50,7 +50,7 @@ nvcc -V
 
 显示下图，说明成功
 
-<img src="./figures/cuda+cudnn/in5.png" align='left'/>
+<img src="./figures/cuda+cudnn/in5.png"/>
 
 
 
@@ -58,7 +58,7 @@ nvcc -V
 
 1. 安装cuDNN ，[官网下载](https://developer.nvidia.com/rdp/cudnn-download?spm=a2c4e.10696291.0.0.1df819a4HJWSTe)（未注册的话，注册一个账号即可）
 
-<img src="./figures/cuda+cudnn/n1.png" align='left'/>
+<img src="./figures/cuda+cudnn/n1.png"/>
 
 2. 解压复制到cuda路径下
 
@@ -78,7 +78,7 @@ sudo dpkg -i libcudnn8-dev_8.0.5.39-1+cuda11.0_amd64.deb
 
 sudo dpkg -i libcudnn8-samples_8.0.5.39-1+cuda11.0_amd64.deb
 ```
-<img src="./figures/cuda+cudnn/n3.png" align='left'/>
+<img src="./figures/cuda+cudnn/n3.png"/>
 
 
 4. 测试
@@ -89,7 +89,7 @@ sudo make
 ./deviceQuery 
 ```
 
-<img src="./figures/cuda+cudnn/n2.png" align='left'/>
+<img src="./figures/cuda+cudnn/n2.png"/>
 
 结果为PASS就成功了。
 
