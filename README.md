@@ -14,21 +14,12 @@
 
 
 + [win10+ubuntu双系统安装](win10+ubuntu双系统安装.md)
-
 + [升级版本](升级版本.md)
-
 + [ubuntu常用软件安装](ubuntu常用软件安装.md)
-
 + [ubuntu常用解压与压缩命令](Ubuntu常用解压与压缩命令.md)
-
 + [解决误删的依赖](解决误删的依赖.md)
-
 + [解决时间双系统不匹配](解决时间双系统不匹配.md)
-
 + [搜索引擎高级指令](搜索引擎高级指令.md)
-
 + [pip](pip.md)
-
 + [cuda+cudnn](cuda+cudnn.md)
-
-  
++ [OpenStack](openstack.md)
