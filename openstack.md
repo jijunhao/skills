@@ -168,8 +168,6 @@ cd ~
 sudo git clone https://gitee.com/jijunhao/devstack.git
 ```
 
-输入码云账号就下载了，git这里少一条就不对，得重新下载
-
 <img src="./figures/openstack/e.png"/>
 
 6. 创建账号
