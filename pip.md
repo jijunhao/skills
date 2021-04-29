@@ -40,7 +40,7 @@ pip uninstall
 
 + 全局源(清华源)
 
-1. linux下会生成~/.config/pip/pip.conf
+1. linux下会生成~/.config/pip/pip.conf 或者 ~/.pip/pip.conf  (必要时可手动创建)
 2. windows下会在%HOMEPATH%\pip下pip.ini（会有提示的）
 
 ```shell
