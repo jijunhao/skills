@@ -102,7 +102,20 @@ ip a
 
 <img src="./figures/openstack/c.png" style="zoom:80%;" />
 
-2. 关防火墙，开ssh
+2. 更改主机映射
+
+```shell
+cat /etc/hostname
+vi /etc/hosts
+```
+
+删掉127.0.0.1 localhost那一行(openstack会识别这玩意儿)
+
+更改下一行为ip地址 hostname
+
+<img src="./figures/openstack/hosts.png"/>
+
+3. 关防火墙，开ssh
 
  ```shell
 sudo ufw disable
@@ -130,7 +143,7 @@ telnet 192.168.80.132 22
 
 
 
-3. 时间同步
+4. 时间同步
 
 ```
 sudo dpkg-reconfigure tzdata
@@ -145,7 +158,7 @@ date
 
 
 
-4. 下载包
+5. 下载包
 
 ```
 cd ~
@@ -159,7 +172,7 @@ sudo git clone https://gitee.com/jijunhao/devstack.git
 
 <img src="./figures/openstack/e.png"/>
 
-3. 创建账号
+6. 创建账号
 
 ```shell
 cd devstack/tools
@@ -173,7 +186,7 @@ echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack
 sudo su -u stack     # 接下来的操作都在stack下进行
 ```
 
-4. 修改pip的源（最好在原用户的~下也配置一下）
+7. 修改pip的源（最好在原用户的~下也配置一下）
 
 ```shell
 mkdir ~/.pip
@@ -185,7 +198,7 @@ index-url = http://mirrors.aliyun.com/pypi/simple/
 trusted-host=mirrors.aliyun.com
 ```
 
-5. 授权stack文件
+8. 授权stack文件
 
 ```shell
 sudo chmod -R 777 /opt/stack
@@ -193,7 +206,7 @@ sudo chmod -R 777 /opt/stack
 
 
 
-6. 改配置文件
+9. 改配置文件
 
 ```shell
 cd devstack
@@ -227,7 +240,7 @@ NEUTRON_CREATE_INITIAL_NETWORKS=False
 
 注意改掉自己的ip
 
-
+10. 安装
 
 ```shell
 ./stack.sh
@@ -235,7 +248,9 @@ NEUTRON_CREATE_INITIAL_NETWORKS=False
 
 
 
-**7.  错误注意事项**
+
+
+##  **错误注意事项**
 
 如果出现下载的错误
 
