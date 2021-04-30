@@ -141,6 +141,8 @@ telnet 192.168.80.132 22
 
 <img src="./figures/openstack/d.png"/>
 
+是否开启ssh的端口意义不大，主要防止有些github是需要22端口的
+
 
 
 4. 时间同步
@@ -181,7 +183,7 @@ sudo chown -R stack:stack /opt/stack/devstack
 
 echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack
 
-sudo su -u stack     # 接下来的操作都在stack下进行
+sudo su - stack     # 接下来的操作都在stack下进行
 ```
 
 7. 修改pip的源（最好在原用户的~下也配置一下）
@@ -250,20 +252,57 @@ NEUTRON_CREATE_INITIAL_NETWORKS=False
 
 ##  **错误注意事项**
 
-如果出现下载的错误
++ 如果出现下载配置前的错误
 
+```shell
 ./unstack.sh
 
 ./clean.sh
 
 ./stack.sh
+```
 
+以下是某些下载时候的图片
 
+<img src="./figures/openstack/i1.png"/>
 
-如果出现配置错误
+<img src="./figures/openstack/i2.png"/>
 
+<img src="./figures/openstack/i3.png"/>
+
++ 如果出现配置错误
+
+```shell
 ./unstack.sh
 
 ./stack.sh
+```
 
 不要./clean.sh，只需要重新一次./unstack.sh，问题就会好了，可能会出现的问题是数据库拒绝访问等配置错误
+
+
+
+## 错误总结
+
+1. pip无法卸载某些文件，例如
+
+<img src="./figures/openstack/s1.png"/>
+
+```shell
+pip show simplejson
+或者
+pip3 show simplejson
+```
+
+找到文件的目标路径，手动卸载，一般都是*info文件
+
+<img src="./figures/openstack/s2.png"/>
+
+<img src="./figures/openstack/s3.png"/>
+
+2. /.cache/pip权限拒绝读取写入错误
+
+```shell
+sudo chmod -R 777 /opt
+./stack.sh
+```
