@@ -36,11 +36,11 @@
 
 ## 安装OpenStack
 
-改阿里云的源，在系统设置Software & Update里面手动该也行
+改阿里云的源，在系统设置Software & Update里面手动该也行，选择China下的阿里云
 
 <img src="./figures/openstack/a.png" style="zoom:80%;" />
 
-点close，等载入完成
+点close，等载入reload完成
 
 
 
@@ -51,7 +51,7 @@ sudo apt update
 
 sudo apt upgrade
 
-sudo apt insall vim git python-pip
+sudo apt install vim git python-pip
 ```
 
 注意这里是python-pip 不要用python3-pip，20安装不成功就在python版本问题
@@ -238,7 +238,7 @@ HOST_IP="192.168.80.132"
 NEUTRON_CREATE_INITIAL_NETWORKS=False
 ```
 
-注意改掉自己的ip
+注意改掉自己的ip，可尝试HOST_IP=192.168.80.132，听说可能会有差异。
 
 10. 安装
 
