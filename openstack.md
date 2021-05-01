@@ -56,13 +56,21 @@ sudo apt install vim git python-pip
 
 注意这里是python-pip 不要用python3-pip，20安装不成功就在python版本问题
 
+<img src="./figures/openstack/update.png" style="zoom:80%;" />
+
+如果是新虚拟机upgrade时出现此问题请输入
+
+```shell
+sudo apt upgrade --fix-missing
+```
+
 
 
 1. 修改静态ip
 
 ```shell
 cd /etc/netplan
-vi 里面的那个文件
+sudo vi 里面的那个文件
 ```
 
 
@@ -106,7 +114,7 @@ ip a
 
 ```shell
 cat /etc/hostname
-vi /etc/hosts
+sudo vi /etc/hosts
 ```
 
 删掉127.0.0.1 localhost那一行(openstack会识别这玩意儿)
@@ -238,7 +246,7 @@ HOST_IP="192.168.80.132"
 NEUTRON_CREATE_INITIAL_NETWORKS=False
 ```
 
-注意改掉自己的ip，可尝试HOST_IP=192.168.80.132，听说可能会有差异。
+注意改掉自己的ip，可尝试HOST_IP=192.168.80.132
 
 10. 安装
 
@@ -306,3 +314,5 @@ pip3 show simplejson
 sudo chmod -R 777 /opt
 ./stack.sh
 ```
+
+<img src="./figures/openstack/s4.png"/>
