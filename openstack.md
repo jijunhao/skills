@@ -226,11 +226,11 @@ HOST_IP="192.168.80.132"
 
 以下是某些下载时候的图片
 
-<img src="/home/jijunhao/Documents/github/skills/skills/figures/openstack/i1.png"/>
+<img src="./figures/openstack/i1.png"/>
 
-<img src="/home/jijunhao/Documents/github/skills/skills/figures/openstack/i2.png"/>
+<img src="./figures/openstack/i2.png"/>
 
-<img src="/home/jijunhao/Documents/github/skills/skills/figures/openstack/i3.png"/>
+<img src="./figures/openstack/i3.png"/>
 
 + 如果出现配置错误
 
@@ -248,7 +248,7 @@ HOST_IP="192.168.80.132"
 
 1. pip无法卸载某些文件，例如
 
-<img src="/home/jijunhao/Documents/github/skills/skills/figures/openstack/s1.png"/>
+<img src="./figures/openstack/s1.png"/>
 
 ```shell
 pip show simplejson
@@ -258,9 +258,9 @@ pip3 show simplejson
 
 找到文件的目标路径，手动卸载，一般都是*info文件
 
-<img src="/home/jijunhao/Documents/github/skills/skills/figures/openstack/s2.png"/>
+<img src="./figures/openstack/s2.png"/>
 
-<img src="/home/jijunhao/Documents/github/skills/skills/figures/openstack/s3.png"/>
+<img src="./figures/openstack/s3.png"/>
 
 2. /.cache/pip权限拒绝读取写入错误
 
@@ -269,4 +269,4 @@ sudo chmod -R 777 /opt
 ./stack.sh
 ```
 
-<img src="/home/jijunhao/Documents/github/skills/skills/figures/openstack/s4.png"/>
+<img src="./figures/openstack/s4.png"/>
