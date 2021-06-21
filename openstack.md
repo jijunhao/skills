@@ -2,9 +2,9 @@
 
 + 工具：VMware Workstation 16 Pro
 
-+ 系统配置要求：18.04 LTS 和server版本都行（20.04的python3.8导致一直报错）
++ 系统配置要求：18.04 LTS 和server版本都行
 
-+ 内存空间：4G，4核，50G
++ 内存空间：2G，2核，50G
 
 + 网络模式：采用NAT模式网络
 
@@ -36,11 +36,11 @@
 
 ## 安装OpenStack
 
-改阿里云的源，在系统设置Software & Update里面手动该也行，选择China下的阿里云
+改阿里云的源，在系统设置Software & Update里面手动该也行
 
 <img src="./figures/openstack/a.png" style="zoom:80%;" />
 
-点close，等载入reload完成
+点close，等载入完成
 
 
 
@@ -51,17 +51,7 @@ sudo apt update
 
 sudo apt upgrade
 
-sudo apt install vim git python-pip
-```
-
-注意这里是python-pip 不要用python3-pip，20安装不成功就在python版本问题
-
-<img src="./figures/openstack/update.png" style="zoom:80%;" />
-
-如果是新虚拟机upgrade时出现此问题请输入
-
-```shell
-sudo apt upgrade --fix-missing
+sudo apt insall vim git python-pip
 ```
 
 
@@ -70,7 +60,7 @@ sudo apt upgrade --fix-missing
 
 ```shell
 cd /etc/netplan
-sudo vi 里面的那个文件
+vi 里面的那个文件
 ```
 
 
@@ -114,7 +104,7 @@ ip a
 
 ```shell
 cat /etc/hostname
-sudo vi /etc/hosts
+vi /etc/hosts
 ```
 
 删掉127.0.0.1 localhost那一行(openstack会识别这玩意儿)
@@ -123,37 +113,9 @@ sudo vi /etc/hosts
 
 <img src="./figures/openstack/hosts.png"/>
 
-3. 关防火墙，开ssh
-
- ```shell
-sudo ufw disable
- ```
-
-```shell
-cd ~
-```
-
-```shell
-ssh-keygen -t rsa
-```
-
-几次回车就行
-
-测试一下自己的ip22端口是否开启了
-
-```shell
-telnet 192.168.80.132 22
-```
-
-如果没有connect refuse应该成功了
-
-<img src="./figures/openstack/d.png"/>
-
-是否开启ssh的端口意义不大，主要防止有些github是需要22端口的
 
 
-
-4. 时间同步
+3. 时间同步
 
 ```
 sudo dpkg-reconfigure tzdata
@@ -168,7 +130,7 @@ date
 
 
 
-5. 下载包
+4. 下载包
 
 ```
 cd ~
@@ -180,7 +142,7 @@ sudo git clone https://gitee.com/jijunhao/devstack.git
 
 <img src="./figures/openstack/e.png"/>
 
-6. 创建账号
+5. 创建账号
 
 ```shell
 cd devstack/tools
@@ -191,10 +153,10 @@ sudo chown -R stack:stack /opt/stack/devstack
 
 echo "stack ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/stack
 
-sudo su - stack     # 接下来的操作都在stack下进行
+sudo su -u stack     # 接下来的操作都在stack下进行
 ```
 
-7. 修改pip的源（最好在原用户的~下也配置一下）
+6. 修改pip的源（最好在原用户的~下也配置一下）
 
 ```shell
 mkdir ~/.pip
@@ -204,17 +166,11 @@ vim ~/.pip/pip.conf
 index-url = http://mirrors.aliyun.com/pypi/simple/
 [install]
 trusted-host=mirrors.aliyun.com
+disable-pip-version-check = true
+timeout = 120
 ```
 
-8. 授权stack文件
-
-```shell
-sudo chmod -R 777 /opt/stack
-```
-
-
-
-9. 改配置文件
+7. 改配置文件
 
 ```shell
 cd devstack
@@ -225,7 +181,6 @@ vi local.conf
 ```
 [[local|localrc]]
 # Define images to be automatically downloaded during the DevStack built process.
-DOWNLOAD_DEFAULT_IMAGES=False
 IMAGE_URLS="http://download.cirros-cloud.net/0.3.4/cirros-0.3.4-x86_64-disk.img"
 
 # use TryStack git mirror
@@ -240,13 +195,12 @@ ADMIN_PASSWORD=admin
 SERVICE_PASSWORD=admin
 SERVICE_TOKEN=admin
 RABBIT_PASSWORD=admin
-#FLAT_INTERFACE=enp0s3
+#FLAT_INTERFACE=ens33
 
 HOST_IP="192.168.80.132"
-NEUTRON_CREATE_INITIAL_NETWORKS=False
 ```
 
-注意改掉自己的ip，可尝试HOST_IP=192.168.80.132
+注意改掉自己的ip
 
 10. 安装
 
@@ -260,59 +214,21 @@ NEUTRON_CREATE_INITIAL_NETWORKS=False
 
 ##  **错误注意事项**
 
-+ 如果出现下载配置前的错误
+如果出现下载的错误
 
-```shell
 ./unstack.sh
 
 ./clean.sh
 
 ./stack.sh
-```
 
-以下是某些下载时候的图片
 
-<img src="./figures/openstack/i1.png"/>
 
-<img src="./figures/openstack/i2.png"/>
+如果出现配置错误
 
-<img src="./figures/openstack/i3.png"/>
-
-+ 如果出现配置错误
-
-```shell
 ./unstack.sh
 
 ./stack.sh
-```
 
 不要./clean.sh，只需要重新一次./unstack.sh，问题就会好了，可能会出现的问题是数据库拒绝访问等配置错误
 
-
-
-## 错误总结
-
-1. pip无法卸载某些文件，例如
-
-<img src="./figures/openstack/s1.png"/>
-
-```shell
-pip show simplejson
-或者
-pip3 show simplejson
-```
-
-找到文件的目标路径，手动卸载，一般都是*info文件
-
-<img src="./figures/openstack/s2.png"/>
-
-<img src="./figures/openstack/s3.png"/>
-
-2. /.cache/pip权限拒绝读取写入错误
-
-```shell
-sudo chmod -R 777 /opt
-./stack.sh
-```
-
-<img src="./figures/openstack/s4.png"/>
